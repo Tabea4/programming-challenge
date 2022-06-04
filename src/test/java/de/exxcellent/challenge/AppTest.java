@@ -25,9 +25,4 @@ class AppTest {
         assertEquals("successful", successLabel, "My expectations were not met");
     }
 
-    @Test
-    void runFootball() throws IOException {
-        App.main("--football", "football.csv");
-    }
-
 }

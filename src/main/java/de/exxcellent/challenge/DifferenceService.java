@@ -11,7 +11,18 @@ public class DifferenceService {
         Algorithms algorithms = new Algorithms();
         List<WeatherDayData> daysWithSmallestTempSpreadList = algorithms.getMinimumDifference(weatherDayDataList);
 
-        String daysWithSmallestTempSpread = Arrays.toString(daysWithSmallestTempSpreadList.toArray());
-        return "Day with smallest temperature spread : " + daysWithSmallestTempSpread;
+
+
+        return formatResultString(daysWithSmallestTempSpreadList);
+    }
+
+    private String formatResultString(List<WeatherDayData> daysWithSmallestTempSpreadList) {
+        StringBuilder resultString = new StringBuilder("Day(s) with smallest temperature spread :");
+
+        for ( WeatherDayData dayWithSmallestTemp: daysWithSmallestTempSpreadList ) {
+            resultString.append(" ").append(dayWithSmallestTemp);
+        }
+
+        return resultString.toString();
     }
 }
