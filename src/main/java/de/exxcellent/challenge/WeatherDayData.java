@@ -10,4 +10,12 @@ public class WeatherDayData {
         this.maximumTemperature = maximumTemperature;
         this.minimumTemperature = minimumTemperature;
     }
+
+    public int getMaximumTemperature() {
+        return this.maximumTemperature;
+    }
+
+    public int getMinimumTemperature() {
+        return this.minimumTemperature;
+    }
 }

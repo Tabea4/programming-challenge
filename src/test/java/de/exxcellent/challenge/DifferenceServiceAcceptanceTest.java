@@ -7,13 +7,15 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DifferenceServiceAcceptanceTest {
+    private final String testFileNameWeatherData = "src/test/resources/de/exxcellent/challenge/weather.csv";
+
     @Test
     void whenCalculatingSmallestTempSpreadForTestDataShouldReturnCorrectString() throws IOException {
         // Given
         DifferenceService differenceService = new DifferenceService();
 
         // When
-        String dayWithSmallestTempSpread = differenceService.calculateSmallestTempSpread("weather.csv");
+        String dayWithSmallestTempSpread = differenceService.calculateSmallestTempSpread(this.testFileNameWeatherData);
 
         // Then
         assertEquals(dayWithSmallestTempSpread, "Day with smallest temperature spread : 9");
