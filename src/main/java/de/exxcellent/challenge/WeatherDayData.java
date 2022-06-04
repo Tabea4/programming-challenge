@@ -18,4 +18,8 @@ public class WeatherDayData {
     public int getMinimumTemperature() {
         return this.minimumTemperature;
     }
+
+    public String toString() {
+        return String.valueOf(this.day);
+    }
 }

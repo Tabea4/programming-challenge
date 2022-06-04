@@ -9,7 +9,7 @@ public class DifferenceService {
         CSVReaderWeather csvReaderWeather = new CSVReaderWeather(fileName);
         List<WeatherDayData> weatherDayDataList = csvReaderWeather.createWeatherDataDayListFromFile();
         Algorithms algorithms = new Algorithms();
-        List<WeatherDayData> daysWithSmallestTempSpreadList = algorithms.getMaximumDifference(weatherDayDataList);
+        List<WeatherDayData> daysWithSmallestTempSpreadList = algorithms.getMinimumDifference(weatherDayDataList);
 
         String daysWithSmallestTempSpread = Arrays.toString(daysWithSmallestTempSpreadList.toArray());
         return "Day with smallest temperature spread : " + daysWithSmallestTempSpread;

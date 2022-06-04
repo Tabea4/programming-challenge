@@ -18,7 +18,7 @@ public class DifferenceServiceAcceptanceTest {
         String dayWithSmallestTempSpread = differenceService.calculateSmallestTempSpread(this.testFileNameWeatherData);
 
         // Then
-        assertEquals(dayWithSmallestTempSpread, "Day with smallest temperature spread : 9");
+        assertEquals(dayWithSmallestTempSpread, "Day(s) with smallest temperature spread : 14");
     }
 
 }

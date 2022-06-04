@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class AlgorithmsTest {
 
     @Test
-    void whenListOfTestWeatherDayDataIsPassedShouldReturnOneWeatherDayDataWithMaximumDifference() {
+    void whenListOfTestWeatherDayDataIsPassedShouldReturnOneWeatherDayDataWithMinimumDifference() {
         // Given
         Algorithms algorithms = new Algorithms();
         List<WeatherDayData> weatherDayDataList = new ArrayList<>();
@@ -20,14 +20,14 @@ public class AlgorithmsTest {
         weatherDayDataList.add(weatherDayData2);
 
         // When
-        List<WeatherDayData> weatherDayDataMaximumDifferenceList = algorithms.getMaximumDifference(weatherDayDataList);
+        List<WeatherDayData> weatherDayDataMinimumDifferenceList = algorithms.getMinimumDifference(weatherDayDataList);
 
         // Then
-        assertEquals(weatherDayDataMaximumDifferenceList.get(0), weatherDayData2);
+        assertEquals(weatherDayDataMinimumDifferenceList.get(0), weatherDayData1);
     }
 
     @Test
-    void whenListOfTestWeatherDayDataIsPassedShouldReturnTwoWeatherDayDataWithMaximumDifference() {
+    void whenListOfTestWeatherDayDataIsPassedShouldReturnTwoWeatherDayDataWithMinimumDifference() {
         // Given
         Algorithms algorithms = new Algorithms();
         List<WeatherDayData> weatherDayDataList = new ArrayList<>();
@@ -37,10 +37,10 @@ public class AlgorithmsTest {
         weatherDayDataList.add(weatherDayData2);
 
         // When
-        List<WeatherDayData> weatherDayDataMaximumDifferenceList = algorithms.getMaximumDifference(weatherDayDataList);
+        List<WeatherDayData> weatherDayDataMinimumDifferenceList = algorithms.getMinimumDifference(weatherDayDataList);
 
         // Then
-        assertEquals(weatherDayDataList, weatherDayDataMaximumDifferenceList);
+        assertEquals(weatherDayDataList, weatherDayDataMinimumDifferenceList);
     }
 
     @Test
@@ -50,9 +50,9 @@ public class AlgorithmsTest {
         List<WeatherDayData> weatherDayDataList = new ArrayList<>();
 
         // When
-        List<WeatherDayData> weatherDayDataMaximumDifferenceList = algorithms.getMaximumDifference(weatherDayDataList);
+        List<WeatherDayData> weatherDayDataMinimumDifferenceList = algorithms.getMinimumDifference(weatherDayDataList);
 
         // Then
-        assertEquals(0, weatherDayDataMaximumDifferenceList.size());
+        assertEquals(0, weatherDayDataMinimumDifferenceList.size());
     }
 }

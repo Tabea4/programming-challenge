@@ -11,30 +11,30 @@ public class Algorithms {
     public Algorithms() {
        this.compareByDifference = new CompareByDifference();
     }
-    public List<WeatherDayData> getMaximumDifference(List<WeatherDayData> weatherDayDataList) {
+    public List<WeatherDayData> getMinimumDifference(List<WeatherDayData> weatherDayDataList) {
         if (weatherDayDataList.isEmpty()) {
             return new ArrayList<>();
         }
         else {
-            return getWeatherDayDataMaximumDifference(weatherDayDataList);
+            return getWeatherDayDataMinimumDifference(weatherDayDataList);
         }
     }
 
-    private List<WeatherDayData> getWeatherDayDataMaximumDifference(List<WeatherDayData> weatherDayDataList) {
+    private List<WeatherDayData> getWeatherDayDataMinimumDifference(List<WeatherDayData> weatherDayDataList) {
         weatherDayDataList.sort(this.compareByDifference);
 
-        WeatherDayData oneWeatherDayDataWithMaximumDifference = getOneElementWithHighestDifference(weatherDayDataList);
+        WeatherDayData oneWeatherDayDataWithMinimumDifference = getOneElementWithSmallestDifference(weatherDayDataList);
 
-        return filterForAllElementsWithMaximumDifference(weatherDayDataList, oneWeatherDayDataWithMaximumDifference);
+        return filterForAllElementsWithMinimumDifference(weatherDayDataList, oneWeatherDayDataWithMinimumDifference);
     }
 
-    private WeatherDayData getOneElementWithHighestDifference(List<WeatherDayData> weatherDayDataList) {
-        return weatherDayDataList.get(weatherDayDataList.size() - 1);
+    private WeatherDayData getOneElementWithSmallestDifference(List<WeatherDayData> weatherDayDataList) {
+        return weatherDayDataList.get(0);
     }
 
-    private List<WeatherDayData> filterForAllElementsWithMaximumDifference(List<WeatherDayData> weatherDayDataList, WeatherDayData oneWeatherDayDataWithMaximumDifference) {
+    private List<WeatherDayData> filterForAllElementsWithMinimumDifference(List<WeatherDayData> weatherDayDataList, WeatherDayData oneWeatherDayDataWithMinimumDifference) {
         return weatherDayDataList.stream()
-                          .filter( weatherDayData -> this.compareByDifference.compare(weatherDayData, oneWeatherDayDataWithMaximumDifference) == 0)
+                          .filter( weatherDayData -> this.compareByDifference.compare(weatherDayData, oneWeatherDayDataWithMinimumDifference) == 0)
                           .collect(Collectors.toList());
     }
 }
