@@ -1,7 +1,6 @@
 package de.exxcellent.challenge;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 public class DifferenceService {
