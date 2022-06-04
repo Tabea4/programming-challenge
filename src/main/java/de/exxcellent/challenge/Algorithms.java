@@ -1,5 +1,6 @@
 package de.exxcellent.challenge;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,6 +12,15 @@ public class Algorithms {
        this.compareByDifference = new CompareByDifference();
     }
     public List<WeatherDayData> getMaximumDifference(List<WeatherDayData> weatherDayDataList) {
+        if (weatherDayDataList.isEmpty()) {
+            return new ArrayList<>();
+        }
+        else {
+            return getWeatherDayDataMaximumDifference(weatherDayDataList);
+        }
+    }
+
+    private List<WeatherDayData> getWeatherDayDataMaximumDifference(List<WeatherDayData> weatherDayDataList) {
         weatherDayDataList.sort(this.compareByDifference);
 
         WeatherDayData oneWeatherDayDataWithMaximumDifference = getOneElementWithHighestDifference(weatherDayDataList);
