@@ -3,6 +3,7 @@ package de.exxcellent.challenge;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -21,11 +22,6 @@ class AppTest {
     @Test
     void aPointlessTest() {
         assertEquals("successful", successLabel, "My expectations were not met");
-    }
-
-    @Test
-    void runFootball() {
-        App.main("--football", "football.csv");
     }
 
 }
