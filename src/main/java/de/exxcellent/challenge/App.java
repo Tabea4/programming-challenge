@@ -15,11 +15,8 @@ public final class App {
     public static void main(String... args) {
 
         // Your preparation code …
-
-        String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
-        System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
-
-        String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
-        System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
+        DifferenceService differenceService = new DifferenceService();
+        String resultSmallestDifference = differenceService.getMaximumDifference(args[0], args[1]);     // Your day analysis function call …
+        System.out.println(resultSmallestDifference);
     }
 }
