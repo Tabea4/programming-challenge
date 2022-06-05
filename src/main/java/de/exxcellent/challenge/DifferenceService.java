@@ -10,9 +10,16 @@ public class DifferenceService {
         Algorithms algorithms = new Algorithms();
         List<WeatherDayData> daysWithSmallestTempSpreadList = algorithms.getMinimumDifference(weatherDayDataList);
 
-
-
         return formatResultString(daysWithSmallestTempSpreadList);
+    }
+
+    public String calculateSmallestGoalSpread(String fileName) {
+        CSVReaderFootball csvReaderFootball = new CSVReaderFootball(fileName);
+        List<FootballData> footballDataList = csvReaderFootball.createFootballDataListFromFile();
+        Algorithms algorithms = new Algorithms();
+        List<FootballData> teamsWithSmallestGoalSpreadList = algorithms.getMinimumDifferenceFootball(footballDataList);
+
+        return formatResultStringFootball(teamsWithSmallestGoalSpreadList);
     }
 
     private String formatResultString(List<WeatherDayData> daysWithSmallestTempSpreadList) {
@@ -23,5 +30,9 @@ public class DifferenceService {
         }
 
         return resultString.toString();
+    }
+
+    private String formatResultStringFootball(List<FootballData> teamsWithSmallestGoalSpreadList) {
+        return "Team(s) with smallest goal spread : ";
     }
 }

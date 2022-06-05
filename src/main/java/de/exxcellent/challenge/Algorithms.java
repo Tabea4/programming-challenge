@@ -37,4 +37,8 @@ public class Algorithms {
                           .filter( weatherDayData -> this.compareByDifference.compare(weatherDayData, oneWeatherDayDataWithMinimumDifference) == 0)
                           .collect(Collectors.toList());
     }
+
+    public List<FootballData> getMinimumDifferenceFootball(List<FootballData> footballDataList) {
+        return null;
+    }
 }
