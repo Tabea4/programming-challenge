@@ -1,3 +1,9 @@
+== UML class diagram - Solution Tabea
+
+* Private methods and variables have been omitted for better readability
+
+image::UMLClassDiagramChallenge.png[alt="UMLClassDiagram"]
+
 = eXXcellent programming challenge
 
 This repository provides the project scaffold for a simple
