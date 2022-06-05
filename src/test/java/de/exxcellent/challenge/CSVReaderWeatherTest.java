@@ -19,10 +19,10 @@ public class CSVReaderWeatherTest {
     @Test
     void whenReadingTestFileReturns30WeatherDayData() throws IOException {
         // Given
-        CSVReaderWeather csvReaderWeather = new CSVReaderWeather(this.testFileNameWeatherData);
+        CSVReader csvReaderWeather = new CSVReaderWeather(this.testFileNameWeatherData);
 
         // When
-        List<WeatherDayData> weatherDayDataList = csvReaderWeather.createWeatherDataDayListFromFile();
+        List<DifferenceInterface> weatherDayDataList = csvReaderWeather.createDataListFromFile();
 
         // Then
         assertEquals(this.weatherDataSize, weatherDayDataList.size());
@@ -31,22 +31,22 @@ public class CSVReaderWeatherTest {
     @Test
     void whenFileDoesNotExistsThrowsIOException() {
         // Given
-        CSVReaderWeather csvReaderWeather = new CSVReaderWeather(this.nonExistingFile);
+        CSVReader csvReaderWeather = new CSVReaderWeather(this.nonExistingFile);
 
         // When, then
         assertThrows(IOException.class, () -> {
-            csvReaderWeather.createWeatherDataDayListFromFile();
+            csvReaderWeather.createDataListFromFile();
         });
     }
 
     @Test
     void whenMaximumTemperatureIsNotIntegerThrowsNumberFormatException() {
         // Given
-        CSVReaderWeather csvReaderWeather = new CSVReaderWeather(this.wrongFormattedFile);
+        CSVReader csvReaderWeather = new CSVReaderWeather(this.wrongFormattedFile);
 
         // When, then
         assertThrows(NumberFormatException.class, () -> {
-            csvReaderWeather.createWeatherDataDayListFromFile();
+            csvReaderWeather.createDataListFromFile();
         });
     }
 }

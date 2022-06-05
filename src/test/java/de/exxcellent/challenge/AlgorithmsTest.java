@@ -13,14 +13,14 @@ public class AlgorithmsTest {
     void whenListOfTestWeatherDayDataIsPassedShouldReturnOneWeatherDayDataWithMinimumDifference() {
         // Given
         Algorithms algorithms = new Algorithms();
-        List<WeatherDayData> weatherDayDataList = new ArrayList<>();
-        WeatherDayData weatherDayData1 = new WeatherDayData(1, 20, 10);
-        WeatherDayData weatherDayData2 = new WeatherDayData(2, 30, 10);
+        List<DifferenceInterface> weatherDayDataList = new ArrayList<>();
+        DifferenceInterface weatherDayData1 = new WeatherDayData(1, 20, 10);
+        DifferenceInterface weatherDayData2 = new WeatherDayData(2, 30, 10);
         weatherDayDataList.add(weatherDayData1);
         weatherDayDataList.add(weatherDayData2);
 
         // When
-        List<WeatherDayData> weatherDayDataMinimumDifferenceList = algorithms.getMinimumDifference(weatherDayDataList);
+        List<DifferenceInterface> weatherDayDataMinimumDifferenceList = algorithms.getMinimumDifference(weatherDayDataList);
 
         // Then
         assertEquals(weatherDayDataMinimumDifferenceList.get(0), weatherDayData1);
@@ -30,14 +30,14 @@ public class AlgorithmsTest {
     void whenListOfTestWeatherDayDataIsPassedShouldReturnTwoWeatherDayDataWithMinimumDifference() {
         // Given
         Algorithms algorithms = new Algorithms();
-        List<WeatherDayData> weatherDayDataList = new ArrayList<>();
-        WeatherDayData weatherDayData1 = new WeatherDayData(1, 20, 10);
-        WeatherDayData weatherDayData2 = new WeatherDayData(2, 20, 10);
+        List<DifferenceInterface> weatherDayDataList = new ArrayList<>();
+        DifferenceInterface weatherDayData1 = new WeatherDayData(1, 20, 10);
+        DifferenceInterface weatherDayData2 = new WeatherDayData(2, 20, 10);
         weatherDayDataList.add(weatherDayData1);
         weatherDayDataList.add(weatherDayData2);
 
         // When
-        List<WeatherDayData> weatherDayDataMinimumDifferenceList = algorithms.getMinimumDifference(weatherDayDataList);
+        List<DifferenceInterface> weatherDayDataMinimumDifferenceList = algorithms.getMinimumDifference(weatherDayDataList);
 
         // Then
         assertEquals(weatherDayDataList, weatherDayDataMinimumDifferenceList);
@@ -47,10 +47,10 @@ public class AlgorithmsTest {
     void whenListOfTestWeatherDayDataIsEmptyShouldReturnEmptyList() {
         // Given
         Algorithms algorithms = new Algorithms();
-        List<WeatherDayData> weatherDayDataList = new ArrayList<>();
+        List<DifferenceInterface> weatherDayDataList = new ArrayList<>();
 
         // When
-        List<WeatherDayData> weatherDayDataMinimumDifferenceList = algorithms.getMinimumDifference(weatherDayDataList);
+        List<DifferenceInterface> weatherDayDataMinimumDifferenceList = algorithms.getMinimumDifference(weatherDayDataList);
 
         // Then
         assertEquals(0, weatherDayDataMinimumDifferenceList.size());

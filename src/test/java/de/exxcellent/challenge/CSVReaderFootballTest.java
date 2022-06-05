@@ -15,10 +15,10 @@ public class CSVReaderFootballTest {
     @Test
     void whenReadingTestFileReturns20FootballData() throws IOException {
         // Given
-        CSVReaderFootball csvReaderFootball = new CSVReaderFootball(this.testFileNameFootballData);
+        CSVReader csvReaderFootball = new CSVReaderFootball(this.testFileNameFootballData);
 
         // When
-        List<FootballData> footballDataList = csvReaderFootball.createFootballDataListFromFile();
+        List<DifferenceInterface> footballDataList = csvReaderFootball.createDataListFromFile();
 
         // Then
         assertEquals(this.footballDataSize, footballDataList.size());

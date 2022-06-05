@@ -11,34 +11,34 @@ public class Algorithms {
     public Algorithms() {
        this.compareByDifference = new CompareByDifference();
     }
-    public List<WeatherDayData> getMinimumDifference(List<WeatherDayData> weatherDayDataList) {
-        if (weatherDayDataList.isEmpty()) {
+    public List<DifferenceInterface> getMinimumDifference(List<DifferenceInterface> differenceDataList) {
+        if (differenceDataList.isEmpty()) {
             return new ArrayList<>();
         }
         else {
-            return getWeatherDayDataMinimumDifference(weatherDayDataList);
+            return getWeatherDayDataMinimumDifference(differenceDataList);
         }
     }
 
-    private List<WeatherDayData> getWeatherDayDataMinimumDifference(List<WeatherDayData> weatherDayDataList) {
-        weatherDayDataList.sort(this.compareByDifference);
+    private List<DifferenceInterface> getWeatherDayDataMinimumDifference(List<DifferenceInterface> differenceDataList) {
+        differenceDataList.sort(this.compareByDifference);
 
-        WeatherDayData oneWeatherDayDataWithMinimumDifference = getOneElementWithSmallestDifference(weatherDayDataList);
+        DifferenceInterface oneDifferenceDataObjectWithMinimumDifference = getOneElementWithSmallestDifference(differenceDataList);
 
-        return filterForAllElementsWithMinimumDifference(weatherDayDataList, oneWeatherDayDataWithMinimumDifference);
+        return filterForAllElementsWithMinimumDifference(differenceDataList, oneDifferenceDataObjectWithMinimumDifference);
     }
 
-    private WeatherDayData getOneElementWithSmallestDifference(List<WeatherDayData> weatherDayDataList) {
-        return weatherDayDataList.get(0);
+    private DifferenceInterface getOneElementWithSmallestDifference(List<DifferenceInterface> differenceDataList) {
+        return differenceDataList.get(0);
     }
 
-    private List<WeatherDayData> filterForAllElementsWithMinimumDifference(List<WeatherDayData> weatherDayDataList, WeatherDayData oneWeatherDayDataWithMinimumDifference) {
-        return weatherDayDataList.stream()
-                          .filter( weatherDayData -> this.compareByDifference.compare(weatherDayData, oneWeatherDayDataWithMinimumDifference) == 0)
-                          .collect(Collectors.toList());
+    private List<DifferenceInterface> filterForAllElementsWithMinimumDifference(List<DifferenceInterface> differenceDataList, DifferenceInterface oneDifferenceDataObjectWithMinimumDifference) {
+        return differenceDataList.stream()
+                                 .filter( differenceData -> this.compareByDifference.compare(differenceData, oneDifferenceDataObjectWithMinimumDifference) == 0)
+                                 .collect(Collectors.toList());
     }
 
-    public List<FootballData> getMinimumDifferenceFootball(List<FootballData> footballDataList) {
+    public List<DifferenceInterface> getMinimumDifferenceFootball(List<DifferenceInterface> differenceDataList) {
         return null;
     }
 }

@@ -1,6 +1,6 @@
 package de.exxcellent.challenge;
 
-public class FootballData {
+public class FootballData implements DifferenceInterface {
     private String team;
     private int goals;
     private int goalsAllowed;
@@ -9,5 +9,15 @@ public class FootballData {
         this.team = team;
         this.goals = goals;
         this.goalsAllowed = goalsAllowed;
+    }
+
+    @Override
+    public int getMaximumValue() {
+        return this.goals;
+    }
+
+    @Override
+    public int getMinimumValue() {
+        return this.goalsAllowed;
     }
 }

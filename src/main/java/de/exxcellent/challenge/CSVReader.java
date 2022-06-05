@@ -1,0 +1,40 @@
+package de.exxcellent.challenge;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class CSVReader {
+
+    private String fileName;
+    protected final String delimiter = ",";
+
+
+    public CSVReader(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public List<DifferenceInterface> createDataListFromFile() throws IOException {
+        List<DifferenceInterface> weatherDayDataList = new ArrayList<>();
+
+        String line;
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(this.fileName));
+
+        skipHeaderLine(bufferedReader);
+
+        while ( (line = bufferedReader.readLine() ) != null ) {
+            weatherDayDataList.add(createDataObjectFromLine(line));
+        }
+
+        return weatherDayDataList;
+    }
+
+    private void skipHeaderLine(BufferedReader bufferedReader) throws IOException {
+        bufferedReader.readLine();
+    }
+
+    protected abstract DifferenceInterface createDataObjectFromLine(String line);
+
+}

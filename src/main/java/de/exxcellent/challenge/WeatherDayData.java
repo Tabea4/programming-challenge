@@ -1,6 +1,6 @@
 package de.exxcellent.challenge;
 
-public class WeatherDayData {
+public class WeatherDayData implements DifferenceInterface {
     private int day;
     private int maximumTemperature;
     private int minimumTemperature;
@@ -11,11 +11,11 @@ public class WeatherDayData {
         this.minimumTemperature = minimumTemperature;
     }
 
-    public int getMaximumTemperature() {
+    public int getMaximumValue() {
         return this.maximumTemperature;
     }
 
-    public int getMinimumTemperature() {
+    public int getMinimumValue() {
         return this.minimumTemperature;
     }
 
