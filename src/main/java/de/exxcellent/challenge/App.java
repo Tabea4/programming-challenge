@@ -11,15 +11,20 @@ public final class App {
      * This is the main entry method of your program.
      * @param args The CLI arguments passed
      */
-    public static void main(String... args) throws IOException {
+    public static void main(String... args)  {
 
         if ( args.length >= 2 ) {
-            DifferenceService differenceService = new DifferenceService();
-            String resultSmallestDifference = differenceService.calculateSmallestDifference(args[0], args[1]);
-            System.out.println(resultSmallestDifference);
+            try {
+                DifferenceService differenceService = new DifferenceService();
+                String resultSmallestDifference = differenceService.calculateSmallestDifference(args[0], args[1]);
+                System.out.println(resultSmallestDifference);
+            }
+            catch (IOException exception) {
+                System.err.println(exception.getMessage());
+            }
         }
         else {
-            throw new IllegalArgumentException("Must pass at least two arguments: context and fileName");
+            System.err.println("Must pass at least two arguments: context and fileName");
         }
     }
 }
