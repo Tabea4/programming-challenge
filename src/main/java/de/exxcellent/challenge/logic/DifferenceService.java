@@ -1,4 +1,9 @@
-package de.exxcellent.challenge;
+package de.exxcellent.challenge.logic;
+
+import de.exxcellent.challenge.data.DifferenceInterface;
+import de.exxcellent.challenge.reader.CSVReader;
+import de.exxcellent.challenge.reader.CSVReaderFootball;
+import de.exxcellent.challenge.reader.CSVReaderWeather;
 
 import java.io.IOException;
 import java.util.List;

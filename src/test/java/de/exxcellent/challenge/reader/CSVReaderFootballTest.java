@@ -1,5 +1,8 @@
-package de.exxcellent.challenge;
+package de.exxcellent.challenge.reader;
 
+import de.exxcellent.challenge.data.DifferenceInterface;
+import de.exxcellent.challenge.reader.CSVReader;
+import de.exxcellent.challenge.reader.CSVReaderFootball;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

@@ -1,4 +1,6 @@
-package de.exxcellent.challenge;
+package de.exxcellent.challenge.logic;
+
+import de.exxcellent.challenge.data.DifferenceInterface;
 
 import java.util.ArrayList;
 import java.util.List;

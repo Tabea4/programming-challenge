@@ -1,4 +1,6 @@
-package de.exxcellent.challenge;
+package de.exxcellent.challenge.reader;
+
+import de.exxcellent.challenge.data.DifferenceInterface;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

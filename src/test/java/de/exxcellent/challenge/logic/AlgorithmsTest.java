@@ -1,5 +1,8 @@
-package de.exxcellent.challenge;
+package de.exxcellent.challenge.logic;
 
+import de.exxcellent.challenge.data.DifferenceInterface;
+import de.exxcellent.challenge.data.WeatherDayData;
+import de.exxcellent.challenge.logic.Algorithms;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

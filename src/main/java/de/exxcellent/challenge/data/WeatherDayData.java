@@ -1,4 +1,4 @@
-package de.exxcellent.challenge;
+package de.exxcellent.challenge.data;
 
 public class WeatherDayData implements DifferenceInterface {
     private int day;

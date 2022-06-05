@@ -1,4 +1,6 @@
-package de.exxcellent.challenge;
+package de.exxcellent.challenge.logic;
+
+import de.exxcellent.challenge.data.DifferenceInterface;
 
 public class CompareByDifference implements java.util.Comparator<DifferenceInterface> {
     @Override

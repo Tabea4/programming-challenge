@@ -1,5 +1,8 @@
-package de.exxcellent.challenge;
+package de.exxcellent.challenge.reader;
 
+
+import de.exxcellent.challenge.data.DifferenceInterface;
+import de.exxcellent.challenge.data.FootballData;
 
 import java.io.IOException;
 

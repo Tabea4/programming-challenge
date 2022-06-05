@@ -1,5 +1,6 @@
-package de.exxcellent.challenge;
+package de.exxcellent.challenge.logic;
 
+import de.exxcellent.challenge.logic.DifferenceService;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
