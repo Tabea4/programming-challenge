@@ -22,7 +22,7 @@ public class DifferenceService {
         CSVReader csvReaderFootball = new CSVReaderFootball(fileName);
         List<DifferenceInterface> footballDataList = csvReaderFootball.createDataListFromFile();
         Algorithms algorithms = new Algorithms();
-        List<DifferenceInterface> teamsWithSmallestGoalSpreadList = algorithms.getMinimumDifferenceFootball(footballDataList);
+        List<DifferenceInterface> teamsWithSmallestGoalSpreadList = algorithms.getMinimumDifference(footballDataList);
 
         return formatResultStringFootball(teamsWithSmallestGoalSpreadList);
     }
@@ -38,6 +38,12 @@ public class DifferenceService {
     }
 
     private String formatResultStringFootball(List<DifferenceInterface> dataWithSmallestDifferenceList) {
-        return "Team(s) with smallest goal spread : ";
+        StringBuilder resultString = new StringBuilder("Team(s) with smallest goal spread :");
+
+        for ( DifferenceInterface teamWithSmallestGoalSpread: dataWithSmallestDifferenceList ) {
+            resultString.append(" ").append(teamWithSmallestGoalSpread);
+        }
+
+        return resultString.toString();
     }
 }

@@ -18,11 +18,11 @@ public class Algorithms {
             return new ArrayList<>();
         }
         else {
-            return getWeatherDayDataMinimumDifference(differenceDataList);
+            return getDataWithMinimumDifference(differenceDataList);
         }
     }
 
-    private List<DifferenceInterface> getWeatherDayDataMinimumDifference(List<DifferenceInterface> differenceDataList) {
+    private List<DifferenceInterface> getDataWithMinimumDifference(List<DifferenceInterface> differenceDataList) {
         differenceDataList.sort(this.compareByDifference);
 
         DifferenceInterface oneDifferenceDataObjectWithMinimumDifference = getOneElementWithSmallestDifference(differenceDataList);
@@ -38,9 +38,5 @@ public class Algorithms {
         return differenceDataList.stream()
                                  .filter( differenceData -> this.compareByDifference.compare(differenceData, oneDifferenceDataObjectWithMinimumDifference) == 0)
                                  .collect(Collectors.toList());
-    }
-
-    public List<DifferenceInterface> getMinimumDifferenceFootball(List<DifferenceInterface> differenceDataList) {
-        return null;
     }
 }

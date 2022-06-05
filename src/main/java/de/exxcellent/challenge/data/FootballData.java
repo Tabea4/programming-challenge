@@ -20,4 +20,8 @@ public class FootballData implements DifferenceInterface {
     public int getMinimumValue() {
         return this.goalsAllowed;
     }
+
+    public String toString() {
+        return this.team;
+    }
 }
