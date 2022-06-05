@@ -1,8 +1,6 @@
 package de.exxcellent.challenge.reader;
 
 import de.exxcellent.challenge.data.DifferenceInterface;
-import de.exxcellent.challenge.reader.CSVReader;
-import de.exxcellent.challenge.reader.CSVReaderWeather;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -63,6 +61,6 @@ public class CSVReaderWeatherTest {
         Throwable exceptionThatWasThrown = assertThrows(IOException.class, () -> {
             csvReaderWeather.createDataListFromFile();
         });
-        assertEquals(exceptionThatWasThrown.getMessage(), "Column not containing maxmimum/minimum value.");
+        assertEquals(exceptionThatWasThrown.getMessage(), "Column not containing maximum/minimum value.");
     }
 }

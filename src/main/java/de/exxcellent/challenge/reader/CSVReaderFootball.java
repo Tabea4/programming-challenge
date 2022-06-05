@@ -1,6 +1,5 @@
 package de.exxcellent.challenge.reader;
 
-
 import de.exxcellent.challenge.data.DifferenceInterface;
 import de.exxcellent.challenge.data.FootballData;
 
@@ -20,15 +19,19 @@ public class CSVReaderFootball extends CSVReader {
         String[] row_entries = line.split(this.delimiter);
 
         if ( rowHasEnoughData( row_entries.length ) ) {
-            String team = row_entries[this.columnNumberTeam];
-            int goals = Integer.parseInt(row_entries[this.columnNumberGoals]);
-            int goalsAllowed = Integer.parseInt(row_entries[this.columnNumberGoalsAllowed]);
-
-            return new FootballData(team, goals, goalsAllowed);
+            return this.createFootballData(row_entries);
         }
         else {
-            throw new IOException("Column not containing maxmimum/minimum value.");
+            throw new IOException("Column not containing maximum/minimum value.");
         }
+    }
+
+    private FootballData createFootballData(String[] row_entries) {
+        String team = row_entries[this.columnNumberTeam];
+        int goals = Integer.parseInt(row_entries[this.columnNumberGoals]);
+        int goalsAllowed = Integer.parseInt(row_entries[this.columnNumberGoalsAllowed]);
+
+        return new FootballData(team, goals, goalsAllowed);
     }
 
     private boolean rowHasEnoughData(int lengthOfLine) {

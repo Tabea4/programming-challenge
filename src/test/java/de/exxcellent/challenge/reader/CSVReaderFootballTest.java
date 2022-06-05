@@ -1,8 +1,6 @@
 package de.exxcellent.challenge.reader;
 
 import de.exxcellent.challenge.data.DifferenceInterface;
-import de.exxcellent.challenge.reader.CSVReader;
-import de.exxcellent.challenge.reader.CSVReaderFootball;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -31,7 +29,7 @@ public class CSVReaderFootballTest {
     }
 
     @Test
-    void whenFileIsEmtpyThrowsIOException() {
+    void whenFileIsEmptyThrowsIOException() {
         // Given
         CSVReader csvReaderFootball = new CSVReaderFootball(this.emptyFile);
 
@@ -51,7 +49,7 @@ public class CSVReaderFootballTest {
         Throwable exceptionThatWasThrown = assertThrows(IOException.class, () -> {
             csvReaderFootball.createDataListFromFile();
         });
-        assertEquals(exceptionThatWasThrown.getMessage(), "Column not containing maxmimum/minimum value.");
+        assertEquals(exceptionThatWasThrown.getMessage(), "Column not containing maximum/minimum value.");
     }
 
 }

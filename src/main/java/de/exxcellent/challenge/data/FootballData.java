@@ -12,12 +12,12 @@ public class FootballData implements DifferenceInterface {
     }
 
     @Override
-    public int getMaximumValue() {
+    public int getFirstValue() {
         return this.goals;
     }
 
     @Override
-    public int getMinimumValue() {
+    public int getSecondValue() {
         return this.goalsAllowed;
     }
 

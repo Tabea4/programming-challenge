@@ -13,30 +13,27 @@ public class Algorithms {
     public Algorithms() {
        this.compareByDifference = new CompareByDifference();
     }
-    public List<DifferenceInterface> getMinimumDifference(List<DifferenceInterface> differenceDataList) {
+
+    public List<DifferenceInterface> getSmallestDifference(List<DifferenceInterface> differenceDataList) {
         if (differenceDataList.isEmpty()) {
             return new ArrayList<>();
         }
         else {
-            return getDataWithMinimumDifference(differenceDataList);
+            return filterForAllElementsWithSmallestDifference(differenceDataList);
         }
     }
 
-    private List<DifferenceInterface> getDataWithMinimumDifference(List<DifferenceInterface> differenceDataList) {
+    private List<DifferenceInterface> filterForAllElementsWithSmallestDifference(List<DifferenceInterface> differenceDataList) {
         differenceDataList.sort(this.compareByDifference);
 
-        DifferenceInterface oneDifferenceDataObjectWithMinimumDifference = getOneElementWithSmallestDifference(differenceDataList);
+        DifferenceInterface oneDifferenceDataObjectWithSmallestDifference = getOneElementWithSmallestDifference(differenceDataList);
 
-        return filterForAllElementsWithMinimumDifference(differenceDataList, oneDifferenceDataObjectWithMinimumDifference);
+        return differenceDataList.stream()
+                                 .filter( differenceData -> this.compareByDifference.compare(differenceData, oneDifferenceDataObjectWithSmallestDifference) == 0)
+                                 .collect(Collectors.toList());
     }
 
     private DifferenceInterface getOneElementWithSmallestDifference(List<DifferenceInterface> differenceDataList) {
         return differenceDataList.get(0);
-    }
-
-    private List<DifferenceInterface> filterForAllElementsWithMinimumDifference(List<DifferenceInterface> differenceDataList, DifferenceInterface oneDifferenceDataObjectWithMinimumDifference) {
-        return differenceDataList.stream()
-                                 .filter( differenceData -> this.compareByDifference.compare(differenceData, oneDifferenceDataObjectWithMinimumDifference) == 0)
-                                 .collect(Collectors.toList());
     }
 }

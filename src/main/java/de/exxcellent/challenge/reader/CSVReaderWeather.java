@@ -1,6 +1,5 @@
 package de.exxcellent.challenge.reader;
 
-
 import de.exxcellent.challenge.data.DifferenceInterface;
 import de.exxcellent.challenge.data.WeatherDayData;
 
@@ -16,20 +15,23 @@ public class CSVReaderWeather extends CSVReader {
         super(fileName);
     }
 
-
     protected DifferenceInterface createDataObjectFromLine(String line) throws IOException {
         String[] row_entries = line.split(this.delimiter);
 
         if ( rowHasEnoughData( row_entries.length ) ) {
-            int day = Integer.parseInt(row_entries[this.columnNumberDay]);
-            int maximumTemperature = Integer.parseInt(row_entries[this.columnNumberMaximumTemperature]);
-            int minimumTemperature = Integer.parseInt(row_entries[this.columnNumberMinimumTemperature]);
-
-            return new WeatherDayData(day, maximumTemperature, minimumTemperature);
+            return this.createWeatherDayData(row_entries);
         }
         else {
-            throw new IOException("Column not containing maxmimum/minimum value.");
+            throw new IOException("Column not containing maximum/minimum value.");
         }
+    }
+
+    private WeatherDayData createWeatherDayData(String[] row_entries) {
+        int day = Integer.parseInt(row_entries[this.columnNumberDay]);
+        int maximumTemperature = Integer.parseInt(row_entries[this.columnNumberMaximumTemperature]);
+        int minimumTemperature = Integer.parseInt(row_entries[this.columnNumberMinimumTemperature]);
+
+        return new WeatherDayData(day, maximumTemperature, minimumTemperature);
     }
 
     private boolean rowHasEnoughData(int lengthOfLine) {

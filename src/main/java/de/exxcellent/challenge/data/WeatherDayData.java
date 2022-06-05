@@ -11,11 +11,11 @@ public class WeatherDayData implements DifferenceInterface {
         this.minimumTemperature = minimumTemperature;
     }
 
-    public int getMaximumValue() {
+    public int getFirstValue() {
         return this.maximumTemperature;
     }
 
-    public int getMinimumValue() {
+    public int getSecondValue() {
         return this.minimumTemperature;
     }
 

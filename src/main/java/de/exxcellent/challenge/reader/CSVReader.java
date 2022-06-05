@@ -35,10 +35,10 @@ public abstract class CSVReader {
 
     private void skipHeaderLine(BufferedReader bufferedReader) throws IOException {
         String line = bufferedReader.readLine();
-        ifFileIsEmptyThrowException(line);
+        ifFileIsEmptyThrowIOException(line);
     }
 
-    private void ifFileIsEmptyThrowException(String line) throws IOException {
+    private void ifFileIsEmptyThrowIOException(String line) throws IOException {
         if ( line == null ) {
             throw new IOException("File is empty.");
         }
