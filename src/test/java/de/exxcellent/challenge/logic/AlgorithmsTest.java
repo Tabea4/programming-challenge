@@ -30,7 +30,7 @@ public class AlgorithmsTest {
         weatherDayDataList.add(weatherDayData2);
 
         // When
-        List<DifferenceInterface> weatherDayDataMinimumDifferenceList = this.algorithms.getSmallestDifference(weatherDayDataList);
+        List<DifferenceInterface> weatherDayDataMinimumDifferenceList = this.algorithms.calculateSmallestDifference(weatherDayDataList);
 
         // Then
         assertEquals(weatherDayDataMinimumDifferenceList.get(0), weatherDayData1);
@@ -46,7 +46,7 @@ public class AlgorithmsTest {
         weatherDayDataList.add(weatherDayData2);
 
         // When
-        List<DifferenceInterface> weatherDayDataMinimumDifferenceList = this.algorithms.getSmallestDifference(weatherDayDataList);
+        List<DifferenceInterface> weatherDayDataMinimumDifferenceList = this.algorithms.calculateSmallestDifference(weatherDayDataList);
 
         // Then
         assertEquals(weatherDayDataList, weatherDayDataMinimumDifferenceList);
@@ -58,7 +58,7 @@ public class AlgorithmsTest {
         List<DifferenceInterface> weatherDayDataList = new ArrayList<>();
 
         // When
-        List<DifferenceInterface> weatherDayDataMinimumDifferenceList = this.algorithms.getSmallestDifference(weatherDayDataList);
+        List<DifferenceInterface> weatherDayDataMinimumDifferenceList = this.algorithms.calculateSmallestDifference(weatherDayDataList);
 
         // Then
         assertEquals(0, weatherDayDataMinimumDifferenceList.size());
@@ -74,7 +74,7 @@ public class AlgorithmsTest {
         footballDataList.add(footballData2);
 
         // When
-        List<DifferenceInterface> footballDataMinimumDifferenceList = this.algorithms.getSmallestDifference(footballDataList);
+        List<DifferenceInterface> footballDataMinimumDifferenceList = this.algorithms.calculateSmallestDifference(footballDataList);
 
         // Then
         assertEquals(footballDataMinimumDifferenceList.get(0), footballData2);
@@ -90,7 +90,7 @@ public class AlgorithmsTest {
         footballDataList.add(footballData2);
 
         // When
-        List<DifferenceInterface> footballDataMinimumDifferenceList = this.algorithms.getSmallestDifference(footballDataList);
+        List<DifferenceInterface> footballDataMinimumDifferenceList = this.algorithms.calculateSmallestDifference(footballDataList);
 
         // Then
         assertEquals(footballDataList, footballDataMinimumDifferenceList);
@@ -102,7 +102,7 @@ public class AlgorithmsTest {
         List<DifferenceInterface> footballDataList = new ArrayList<>();
 
         // When
-        List<DifferenceInterface> footballDataMinimumDifferenceList = this.algorithms.getSmallestDifference(footballDataList);
+        List<DifferenceInterface> footballDataMinimumDifferenceList = this.algorithms.calculateSmallestDifference(footballDataList);
 
         // Then
         assertEquals(0, footballDataMinimumDifferenceList.size());

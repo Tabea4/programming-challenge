@@ -37,7 +37,7 @@ public class DifferenceService {
     private String calculateSmallestTempSpread(String fileName) throws IOException {
         CSVReader csvReaderWeather = new CSVReaderWeather(fileName);
         List<DifferenceInterface> weatherDayDataList = csvReaderWeather.createDataListFromFile();
-        List<DifferenceInterface> daysWithSmallestTempSpreadList = this.algorithms.getSmallestDifference(weatherDayDataList);
+        List<DifferenceInterface> daysWithSmallestTempSpreadList = this.algorithms.calculateSmallestDifference(weatherDayDataList);
 
         return formatResultStringWeather(daysWithSmallestTempSpreadList);
     }
@@ -45,7 +45,7 @@ public class DifferenceService {
     private String calculateSmallestGoalSpread(String fileName) throws IOException {
         CSVReader csvReaderFootball = new CSVReaderFootball(fileName);
         List<DifferenceInterface> footballDataList = csvReaderFootball.createDataListFromFile();
-        List<DifferenceInterface> teamsWithSmallestGoalSpreadList = this.algorithms.getSmallestDifference(footballDataList);
+        List<DifferenceInterface> teamsWithSmallestGoalSpreadList = this.algorithms.calculateSmallestDifference(footballDataList);
 
         return formatResultStringFootball(teamsWithSmallestGoalSpreadList);
     }

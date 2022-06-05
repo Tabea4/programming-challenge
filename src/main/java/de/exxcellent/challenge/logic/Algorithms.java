@@ -14,7 +14,7 @@ public class Algorithms {
        this.compareByDifference = new CompareByDifference();
     }
 
-    public List<DifferenceInterface> getSmallestDifference(List<DifferenceInterface> differenceDataList) {
+    public List<DifferenceInterface> calculateSmallestDifference(List<DifferenceInterface> differenceDataList) {
         if (differenceDataList.isEmpty()) {
             return new ArrayList<>();
         }
