@@ -23,7 +23,7 @@ public class DifferenceServiceAcceptanceTest {
     }
 
     @Test
-    void whenCalculatingTeamWithSmallestGoalSpreadForTestDataShouldReturnCorrectString() {
+    void whenCalculatingTeamWithSmallestGoalSpreadForTestDataShouldReturnCorrectString() throws IOException {
         // Given
         DifferenceService differenceService = new DifferenceService();
 

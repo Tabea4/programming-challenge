@@ -13,7 +13,7 @@ public class DifferenceService {
         return formatResultString(daysWithSmallestTempSpreadList);
     }
 
-    public String calculateSmallestGoalSpread(String fileName) {
+    public String calculateSmallestGoalSpread(String fileName) throws IOException {
         CSVReaderFootball csvReaderFootball = new CSVReaderFootball(fileName);
         List<FootballData> footballDataList = csvReaderFootball.createFootballDataListFromFile();
         Algorithms algorithms = new Algorithms();

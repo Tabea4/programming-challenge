@@ -25,7 +25,7 @@ public class CSVReaderWeatherTest {
         List<WeatherDayData> weatherDayDataList = csvReaderWeather.createWeatherDataDayListFromFile();
 
         // Then
-        assertEquals(weatherDayDataList.size(), this.weatherDataSize);
+        assertEquals(this.weatherDataSize, weatherDayDataList.size());
     }
 
     @Test
