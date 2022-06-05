@@ -19,7 +19,7 @@ public abstract class CSVReader {
     }
 
     public List<DifferenceInterface> createDataListFromFile() throws IOException {
-        List<DifferenceInterface> weatherDayDataList = new ArrayList<>();
+        List<DifferenceInterface> differenceDataList = new ArrayList<>();
 
         String line;
         BufferedReader bufferedReader = new BufferedReader(new FileReader(this.fileName));
@@ -27,10 +27,10 @@ public abstract class CSVReader {
         skipHeaderLine(bufferedReader);
 
         while ( (line = bufferedReader.readLine() ) != null ) {
-            weatherDayDataList.add(createDataObjectFromLine(line));
+            differenceDataList.add(createDataObjectFromLine(line));
         }
 
-        return weatherDayDataList;
+        return differenceDataList;
     }
 
     private void skipHeaderLine(BufferedReader bufferedReader) throws IOException {
