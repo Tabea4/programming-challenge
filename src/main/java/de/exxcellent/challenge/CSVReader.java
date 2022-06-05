@@ -32,9 +32,16 @@ public abstract class CSVReader {
     }
 
     private void skipHeaderLine(BufferedReader bufferedReader) throws IOException {
-        bufferedReader.readLine();
+        String line = bufferedReader.readLine();
+        ifFileIsEmptyThrowException(line);
     }
 
-    protected abstract DifferenceInterface createDataObjectFromLine(String line);
+    private void ifFileIsEmptyThrowException(String line) throws IOException {
+        if ( line == null ) {
+            throw new IOException("File is empty.");
+        }
+    }
+
+    protected abstract DifferenceInterface createDataObjectFromLine(String line) throws IOException;
 
 }

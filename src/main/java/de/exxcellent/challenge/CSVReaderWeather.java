@@ -1,6 +1,8 @@
 package de.exxcellent.challenge;
 
 
+import java.io.IOException;
+
 public class CSVReaderWeather extends CSVReader {
 
     private final int columnNumberDay = 0;
@@ -12,13 +14,26 @@ public class CSVReaderWeather extends CSVReader {
     }
 
 
-    protected DifferenceInterface createDataObjectFromLine(String line) {
-        String[] values = line.split(this.delimiter);
+    protected DifferenceInterface createDataObjectFromLine(String line) throws IOException {
+        String[] row_entries = line.split(this.delimiter);
 
-        int day = Integer.parseInt(values[this.columnNumberDay]);
-        int maximumTemperature = Integer.parseInt(values[this.columnNumberMaximumTemperature]);
-        int minimumTemperature = Integer.parseInt(values[this.columnNumberMinimumTemperature]);
+        if ( rowHasEnoughData( row_entries.length ) ) {
+            int day = Integer.parseInt(row_entries[this.columnNumberDay]);
+            int maximumTemperature = Integer.parseInt(row_entries[this.columnNumberMaximumTemperature]);
+            int minimumTemperature = Integer.parseInt(row_entries[this.columnNumberMinimumTemperature]);
 
-        return new WeatherDayData(day, maximumTemperature, minimumTemperature);
+            return new WeatherDayData(day, maximumTemperature, minimumTemperature);
+        }
+        else {
+            throw new IOException("Column not containing maxmimum/minimum value.");
+        }
+    }
+
+    private boolean rowHasEnoughData(int lengthOfLine) {
+        return lengthOfLine > getMaximumIndexOfAllNeededColumns();
+    }
+
+    private int getMaximumIndexOfAllNeededColumns() {
+        return Math.max(Math.max(this.columnNumberDay, this.columnNumberMinimumTemperature), this.columnNumberMaximumTemperature);
     }
 }

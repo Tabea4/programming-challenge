@@ -13,6 +13,7 @@ public class CSVReaderWeatherTest {
     private final String testFileNameWeatherData = "src/test/resources/de/exxcellent/challenge/weather.csv";
     private final String nonExistingFile = "someRandomFileNameThatDoesNotExist";
     private final String wrongFormattedFile = "src/test/resources/de/exxcellent/challenge/weather_max_temp_not_int.csv";
+    private final String fileNotContainMaximumAndMinimumValue = "src/test/resources/de/exxcellent/challenge/broken_weather_file.csv";
     private final int weatherDataSize = 30;
 
 
@@ -48,5 +49,17 @@ public class CSVReaderWeatherTest {
         assertThrows(NumberFormatException.class, () -> {
             csvReaderWeather.createDataListFromFile();
         });
+    }
+
+    @Test
+    void whenFileNotContainsMinimumAndMaximumValueThrowsIOException() {
+        // Given
+        CSVReader csvReaderWeather = new CSVReaderWeather(this.fileNotContainMaximumAndMinimumValue);
+
+        // When, then
+        Throwable exceptionThatWasThrown = assertThrows(IOException.class, () -> {
+            csvReaderWeather.createDataListFromFile();
+        });
+        assertEquals(exceptionThatWasThrown.getMessage(), "Column not containing maxmimum/minimum value.");
     }
 }
