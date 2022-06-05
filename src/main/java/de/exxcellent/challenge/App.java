@@ -18,9 +18,16 @@ public final class App {
      */
     public static void main(String... args) throws IOException {
 
-        // Your preparation code …
-        DifferenceService differenceService = new DifferenceService();
-        String resultSmallestDifference = differenceService.calculateSmallestTempSpread(args[0]);     // Your day analysis function call …
-        System.out.println(resultSmallestDifference);
+        if ( args.length >= 2 ) {
+            // Your preparation code …
+            DifferenceService differenceService = new DifferenceService();
+            String resultSmallestDifference = differenceService.calculateSmallestDifference(args[0], args[1]);     // Your day analysis function call …
+            System.out.println(resultSmallestDifference);
+        }
+        else {
+            throw new IllegalArgumentException("Must pass at least two arguments: context and fileName");
+        }
+
+
     }
 }
